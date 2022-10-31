@@ -1,8 +1,8 @@
 const Register = document.getElementById('register');
 
-if(Register) Register.addEventListener('submit', displayname);
+if(Register) Register.addEventListener('submit',Registration);
 
-function displayname(e){
+function Registration(e){
 
 let Fname = document.getElementById("fname").value;
 let Lname = document.getElementById("lname").value;
