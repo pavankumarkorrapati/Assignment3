@@ -1,6 +1,7 @@
 const login1=document.getElementById("login");
 const reg=document.getElementById("register");
-
+const Notes = document.getElementById("comments");
+if (Notes) Notes.addEventListener('submit',comment);
 if(login1) login1.addEventListener('submit',fun2)
 if(reg) reg.addEventListener('submit',fun)
 function fun2(e)
@@ -50,5 +51,11 @@ function fun(e)
     const user1=new User(fname,lname,email,password);
     console.log(user1);
 }
+
+function comment(){
+ let Notes = document.getElementById('comment').value;
+ console.log("Notes: " + Notes);    
+}
+
 
 
