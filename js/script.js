@@ -52,9 +52,31 @@ function fun(e)
     console.log(user1);
 }
 
-function comment(){
- let Notes = document.getElementById('comment').value;
- console.log("Notes: " + Notes);    
+function comment(e)
+{
+    e.preventDefault();
+    let takenotes=document.getElementById('comment').value;
+
+    class User{
+        constructor(takenotes)
+        {
+            this.tnotes=takenotes;
+        }
+    
+    
+    gettnotes(){
+        return this.tnotes;
+    }
+    settnotes(takenotes){
+        this.tnotes = takenotes;
+    }
+   
+
+    }
+
+    const Userl=new User(takenotes);
+    console.log(Userl);
+
 }
 
 
