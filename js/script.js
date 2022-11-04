@@ -1,74 +1,54 @@
-class User {
-  constructor(fname, username,lname,pass) {
-    this.FirstName = fname;
-    this.userName = username;
-    this.lastName = lname;
-    this.setUserPassword(pass);
-  }
-  //get methods
-  getFirstName() {
-    return this.fname;
-  }
-  getlastName() {
-    return this.lastName;
-  }
-  getuserName() {
-    return this.username;
-  }
-  getUserPassword() {
-    return this.pass;
-  }
-  //set methods
-  setFirstName(fname) {
-    this.FirstName = fname;
-  }
-  setlastName(lname) {
-    this.lastName = lname;
-  }
-  setUserPassword(pass) {
-    if(this.validPassword(pass)) {
-      this.userPassword = pass;
-    } else {
-      console.log("Password must have at least 1 uppercase letter, 1 symbol, 2 numbers," 
-        + "and have a length of at least 8 characters.");
-    }
-  }
-  //valid password method
-  validPassword(pass) {
-    if(pass.length >= 8) {
-      let upper = 0;
-      let numbers = 0;
-      let symbols = 0;
-      
-      for(let i = 0; i<pass.length; i++) {
-        if(this.isDigit(pass[i])) {
-          numbers++;
-        } else if(!this.isLetterOrDigit(pass[i])) {
-          symbols++;
-        } else if(this.isUpperCase(pass[i])) {
-          upper++;
-        }
-      }
+const login1=document.getElementById("login");
+const reg=document.getElementById("register");
 
-      if(upper >= 1 && numbers >= 2 && symbols >= 1) {
-        return true;
-      }
+if(login1) login1.addEventListener('submit',fun2)
+if(reg) reg.addEventListener('submit',fun)
+function fun2(e)
+{
+    e.preventDefault();
+    let email=document.getElementById('email').value;
+    let password=document.getElementById('password').value;
+
+    class User{
+        constructor(email,password)
+        {
+            this.email=email;
+            this.password=password;
+        }
     }
-    return false;
+   
+    const user1=new User(email,password);
+    console.log(user1);
+    getemail();{
+        return this.email;
+    }
+    setemail(newemail);{
+        this.email = newemail;
+    }
+    user1.email="jghbnj'k;'lkjhg";
+    console.log(user1.email);
   }
-  //returns if character is a letter
-  isUpperCase(char) {
-    return (/[A-Z]/).test(char)
-  }
-  //returns if character is a digit
-  isDigit(char) {
-    return (/[1-9]/).test(char)
-  }
-  //returns if character is a letter or digit
-  isLetterOrDigit(char) {
-    return ((/[a-zA-Z]/).test(char) || (/[1-9]/).test(char))
-  }
+
+function fun(e)
+{
+    e.preventDefault()
+    let fname=document.getElementById('fname').value;
+    let lname=document.getElementById('lname').value;
+    let email=document.getElementById('email').value;
+    let password=document.getElementById('password').value;
+    
+    class User{
+        constructor(fname,lname,email,password)
+        {
+            this.firstname=fname;
+            this.lastname=lname;
+            this.email=email;
+            this.password=password;
+        }
+    }
+   
+    const user1=new User(fname,lname,email,password);
+    console.log(user1);
 }
 
 
-console.log($User);
