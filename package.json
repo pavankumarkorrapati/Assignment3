@@ -1,0 +1,22 @@
+{
+  "name": "assignment3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavankumarkorrapati/Assignment3.git"
+  },
+  "author": "Pavan kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavankumarkorrapati/Assignment3/issues"
+  },
+  "homepage": "https://github.com/pavankumarkorrapati/Assignment3#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
