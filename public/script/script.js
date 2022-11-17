@@ -1,12 +1,12 @@
 //Registration Javascript
 
 class User{
-    constructor(Firstname,Lastname,Username,Password,Notes){
+    constructor(Firstname,Lastname,Username,Password){
           this.Firstname = Firstname;
           this.Lastname = Lastname;
           this.Username = Username;
           this.Password = Password;
-          this.Notes = Notes;
+         
     }
        getFirstName(){
         return this.Firstname;
@@ -23,10 +23,6 @@ class User{
        getPassWord(){
         return this.Password;
        }
-
-       getComments(){
-        return this.Notes; 
-      }
 
 }
 
@@ -63,7 +59,7 @@ if (Login) Login.addEventListener("submit",Loggin);
    
    let Username = document.getElementById("email").value;
    let Password = document.getElementById("password").value;
-   let signin = new User(Username,Password);
+   let signin = new User(null, null, Username,Password);
    
    console.log(signin);
    
@@ -72,14 +68,22 @@ if (Login) Login.addEventListener("submit",Loggin);
    }
 
 //Notes javascript part
-let Comment = document.getElementById("comments");
-if (Comment) Comment.addEventListener("submit",Note);
+class Note{
+constructor(Notes) {
+   this.Notes = Notes;
+}
+getComments(){
+   return this.Notes; 
+ }
+}
+let comment = document.getElementById("comments");
+if (comment) comment.addEventListener("submit",note1);
 
-function Note(e){
+function note1(e){
    e.preventDefault();
   
    let Notes = document.getElementById("notetaking").value;
-   let Newcomment = new User(Notes);
+   let Newcomment = new Note(Notes);
 
    console.log(Newcomment);
 }
