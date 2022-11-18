@@ -27,6 +27,11 @@
 
 ![Note Taking website !](/public/images/Note.png "Note")
 
+# ERD Diagram
+
+![Note Taking website !](/public/images/ERD.png "ERD Diagram")
+
 # WORKING
 
 <p> This website uses Nodejs,HTML and css  </p>
+
