@@ -8,8 +8,10 @@
   <li>JavaScript</li>
   <li>CSS</li>
 </ol>
-
+<br>
+<ul>
 <p>This is Home Page</p>
+</ul>
 
 ![Note Taking website !](/public/images/Screenshot(2).png "Website")
 
