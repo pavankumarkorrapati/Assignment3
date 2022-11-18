@@ -5,7 +5,7 @@ const userRoutes = require('./server/routes/user');
 
 app.use(express.json());
 
-const path = require('path');
+
 
 app.use(function(_req,res,next){
 res.header("Access-Control-Allow-Origin", "*");
@@ -16,13 +16,13 @@ next();
 
 app.use("/user",userRoutes);
 
-app.get('/', function (_req,res){
-  res.sendFile(path.resolve(__dirname,'public','index.html'));
-});
+app.use(express.static(__dirname + "/public"));
+app.get('/', (_req, res) => res.sendFile(path.join(__dirname, '/public', 'index.html')));
 
-app.get('/', function (_req,res){
-    res.sendFile(path.resolve(__dirname,'public','login.html'));
-});
+
+
+
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('Server started on port ' +PORT));
