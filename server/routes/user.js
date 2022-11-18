@@ -5,7 +5,7 @@ const router = express.Router();
 router
   .get('/', async (req, res) => {
     try {
-      const users = await User.getAllUsers();
+      const users = User.getAllUsers();
       res.send(users);
     } catch(err) {
       res.status(401).send({message: err.message});
@@ -14,7 +14,7 @@ router
 
   .post('/login', async (req, res) => {
     try {
-      let user = await User.login(req.body);
+      let user = User.login(req.body);
       res.send({...user, password: undefined})
     } catch(err) {
       res.status(401).send({message: err.message});

@@ -9,6 +9,10 @@
   <li>CSS</li>
 </ol>
 
+<p>This is Home Page</p>
+
 ![Note Taking website !](/public/images/Screenshot(2).png "Website")
+
+<p>Below is the Registration page</p>
 
 ![Note Taking website !](/public/images/registration.png "website")
