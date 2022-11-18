@@ -18,3 +18,15 @@
 <p>Below is the Registration page</p>
 
 ![Note Taking website !](/public/images/registration.png "website")
+
+<p>This is Login Page</p>
+
+![Note Taking website !](/public/images/Login.png "Login")
+
+<p>This is Note page</p>
+
+![Note Taking website !](/public/images/Note.png "Note")
+
+# WORKING
+
+<p> This website uses Nodejs,HTML and css  </p>
