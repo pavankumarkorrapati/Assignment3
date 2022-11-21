@@ -87,4 +87,29 @@ function note1(e){
 
    console.log(Newcomment);
 }
+
+const usersBtn=document.getElementById("users-btn");
+if(usersBtn) usersBtn.addEventListener('click',getUsers);
+
+function getUsers()
+{
+    fetch("http://localhost:3000/user/")
+    .then((res)=>res.json())
+    .then((data) => {
+        let ul=document.getElementById("getAllUsers");
+        data.forEach((user) => {
+            let li=document.createElement('li');
+            let text=document.createTextNode(user.userName);
+            console.log(text)
+
+            li.appendChild(text);
+            console.log(li)
+            console.log(ul)
+
+            ul.appendChild(li);
+
+        })
+    })
+    .catch((err)=>console.log(`Error! ${err}`));
+}
    

@@ -3,8 +3,9 @@ const User = require('../models/user');
 const router = express.Router();
 
 router
-  .get('/', async (req, res) => {
+  .get('/', async (_req, res) => {
     try {
+      console.log("hi");
       const users = User.getAllUsers();
       res.send(users);
     } catch(err) {

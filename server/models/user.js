@@ -17,10 +17,9 @@ const users = [
 ];
 
 function getAllUsers() {
+
   return users;
+
 }
-
-
-
 
 module.exports = { getAllUsers};

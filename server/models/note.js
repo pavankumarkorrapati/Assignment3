@@ -8,3 +8,5 @@ const notes = [
 function getAllNotes() {
     return notes;
   }
+
+  module.exports = {getAllNotes};
