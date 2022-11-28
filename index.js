@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 const userRoutes = require('./server/routes/user');
+const noteRoutes = require('./server/routes/note');
 
 app.use(express.json());
 
@@ -16,6 +17,7 @@ next();
 });
 
 app.use("/user",userRoutes);
+app.use("/note",noteRoutes);
 
 app.use(express.static(__dirname + "/public"));
 app.get('/', (_req, res) => res.sendFile(path.join(__dirname, '/public', 'index.html')));

@@ -1,22 +1,24 @@
 const express = require('express');
-const User = require('../models/user');
+const Note = require('../models/note');
 const router = express.Router();
 
 router
   .get('/', async (_req, res) => {
     try {
       console.log("hi");
-      const users = await User.getAllUsers();
-      res.send(users);
+      const notes = Note.getAllNotes();
+      res.send(notes);
     } catch(err) {
       res.status(401).send({message: err.message});
     }
   })
 
+
+
   .post('/login', async (req, res) => {
     try {
-      let user = await User.login(req.body);
-      res.send({...user, password: undefined})
+      let note = Note.login(req.body);
+      res.send({...note})
     } catch(err) {
       res.status(401).send({message: err.message});
     }

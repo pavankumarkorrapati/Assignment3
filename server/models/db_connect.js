@@ -8,13 +8,23 @@ const con = mysql.createConnection({
     database: process.env.MYSQL_DB
 });
 
+
+const query = (sql,binding) => {
+    return new Promise((resolve, reject) => {
+        con.query(sql, binding, (err, result,fields) => {
+            if(err) reject(err);
+            resolve(result);
+        });
+    })
+}
+
 con.connect(function (err){
     if(err) throw err;
     console.log("connected successfully");
-    con.query("CREATE DATABASE IF NOT EXISTS", function (err, result){
+    con.query("CREATE DATABASE IF NOT EXISTS db_connect", function (err, result){
          if(err) throw err;
          console.log("Database created successfully");
     });
 });
 
-module.exports = con;
+module.exports = {con,query};

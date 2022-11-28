@@ -88,6 +88,10 @@ function note1(e){
    console.log(Newcomment);
 }
 
+
+
+
+
 const usersBtn=document.getElementById("users-btn");
 if(usersBtn) usersBtn.addEventListener('click',getUsers);
 
@@ -113,3 +117,27 @@ function getUsers()
     .catch((err)=>console.log(`Error! ${err}`));
 }
    
+const notesBtn=document.getElementById("notes-btn");
+if(notesBtn) notesBtn.addEventListener('click',getNotes);
+
+function getNotes()
+{
+    fetch("http://localhost:3000/note/")
+    .then((res)=>res.json())
+    .then((data) => {
+        let ul=document.getElementById("getAllNotes");
+        data.forEach((note) => {
+            let li=document.createElement('li');
+            let text=document.createTextNode(note.notetaking);
+            console.log(text)
+
+            li.appendChild(text);
+            console.log(li)
+            console.log(ul)
+
+            ul.appendChild(li);
+
+        })
+    })
+    .catch((err)=>console.log(`Error! ${err}`));
+}
