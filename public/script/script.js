@@ -86,6 +86,7 @@ function note1(e){
    let Newcomment = new Note(Notes);
 
    console.log(Newcomment);
+   document.getElementById("notetaking").value ="";
 }
 
 
@@ -125,17 +126,17 @@ function getNotes()
     fetch("http://localhost:3000/note/")
     .then((res)=>res.json())
     .then((data) => {
-        let ul=document.getElementById("getAllNotes");
+        let ulist=document.getElementById("getAllNotes");
+
         data.forEach((note) => {
+            
             let li=document.createElement('li');
-            let text=document.createTextNode(note.notetaking);
-            console.log(text)
+            let text=document.createTextNode(note.notetake);
+            
 
             li.appendChild(text);
-            console.log(li)
-            console.log(ul)
-
-            ul.appendChild(li);
+            console.log(text)
+            ulist.appendChild(li);
 
         })
     })

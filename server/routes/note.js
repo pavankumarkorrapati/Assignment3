@@ -5,8 +5,8 @@ const router = express.Router();
 router
   .get('/', async (_req, res) => {
     try {
-      console.log("hi");
-      const notes = Note.getAllNotes();
+      console.log("hello");
+      const notes = await Note.getAllNotes();
       res.send(notes);
     } catch(err) {
       res.status(401).send({message: err.message});
@@ -15,10 +15,10 @@ router
 
 
 
-  .post('/login', async (req, res) => {
+  .post('/note', async (req, res) => {
     try {
       let note = Note.login(req.body);
-      res.send({...note})
+      res.send({...note, notetake});
     } catch(err) {
       res.status(401).send({message: err.message});
     }
