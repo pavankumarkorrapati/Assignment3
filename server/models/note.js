@@ -1,45 +1,54 @@
 const con = require("./db_connect");
 
-// Table Creation 
 async function createTable() {
-  let sql=`CREATE TABLE IF NOT EXISTS comments(
+  let sql=`CREATE TABLE IF NOT EXISTS notes (
     noteID INT NOT NULL AUTO_INCREMENT,
-    Note VARCHAR(255) NOT NULL UNIQUE,
-    FOREIGN KEY (Note) REFERENCES users(userName)
-    );`
+    noteContent VARCHAR(255),
+    userID INT NOT NULL,
+    CONSTRAINT notePK PRIMARY KEY(noteID),
+    CONSTRAINT noteFK FOREIGN KEY(noteID) references users(userID)
+  ); `
   await con.query(sql);
 }
 createTable();
 
-// grabbing all note in database
+// grabbing all notes in database
 async function getAllNotes() {
   const sql = `SELECT * FROM notes;`;
-  let comments = await con.query(sql);
-  console.log(comments)
+  let Notes = await con.query(sql);
+  console.log(Notes)
 }
 
-// Create  User - Registering
-async function register(comment) {
-  
-  const sql = `INSERT INTO comments Note)
-    VALUES ("${comment.Note}");
+
+async function register(note) {
+ 
+  const sql = `INSERT INTO notes (noteID,noteContent,userID)
+    VALUES ("${note}", "${noteContent}", "${userID}"));
   `
   await con.query(sql);
-  return await login(comment);
+  return await login(note);
+}
+
+
+async function getAllNotes(note) {
+  let sql;
+
+  if(note.noteID) {
+    sql = `
+      SELECT * FROM notes
+       WHERE noteID = ${note.noteID}
+    `
+  } else {
+    sql = `
+    SELECT * FROM notes 
+      WHERE noteContent = "${note.noteContent}}"
+  `;
+  }
+  return await con.query(sql);  
 }
 
 
 
-const notes = [
-    {
-        NoteId: 1,
-        notetake:"hi" 
-    },
-    {
-        NoteId: 2,
-        notetake:"hello pavan" 
-    }
-];
 
 function getAllNotes() {
 
@@ -47,4 +56,4 @@ function getAllNotes() {
     
   }
 
-module.exports = { getAllNotes};
+module.exports = { getAllNotes, register};

@@ -15,10 +15,11 @@ router
 
 
 
-  .post('/note', async (req, res) => {
+  
+  .post('/register', async (req, res) => {
     try {
-      let note = Note.login(req.body);
-      res.send({...note, notetake});
+      let note = await Note.register(req.body);
+      res.send({...note})
     } catch(err) {
       res.status(401).send({message: err.message});
     }
