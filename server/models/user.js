@@ -6,6 +6,8 @@ async function createTable() {
     userID INT NOT NULL AUTO_INCREMENT,
     userName VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
     CONSTRAINT userPK PRIMARY KEY(userID)
   ); `
   await con.query(sql);
@@ -22,10 +24,11 @@ async function getAllUsers() {
 // Create  User - Registering
 async function register(user) {
   let cUser = await getUser(user);
+  console.log(cUser)
   if(cUser.length > 0) throw Error("Username already in use");
 
-  const sql = `INSERT INTO users (userName, password)
-    VALUES ("${user.userName}", "${user.password}");
+  const sql = `INSERT INTO users (userName, password,firstName,lastName)
+    VALUES ("${user.userName}", "${user.password}","${user.firstName}","${user.lastName}");
   `
   await con.query(sql);
   return await login(user);
@@ -34,7 +37,7 @@ async function register(user) {
 // Read User -- login user
 async function login(user) { // {userName: "sda", password: "gsdhjsga"}
   let cUser = await getUser(user); //[{userName: "cathy123", password: "icecream"}]
-  
+  console.log(cUser)
   if(!cUser[0]) throw Error("Username not found");
   if(cUser[0].password !== user.password) throw Error("Password incorrect");
 
