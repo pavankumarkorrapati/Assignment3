@@ -1,4 +1,4 @@
-import { fetchData, getnotes } from './main.js'
+import { fetchData, getCurrentUser,setCurrentUser} from './main.js'
 class Note{
     constructor(note) {
        this.Note = note;
@@ -15,16 +15,18 @@ class Note{
     function note1(e){
        e.preventDefault();
       let feedback = document.getElementById("notetaking").value;
-      let note = new Note(feedback);
-
+      let note = new Note(null,null,feedback);
+       let user = getCurrentUser();
+       note.userID = user.userID;
   fetchData("/note/create", note, "POST")
   .then((data) => {
     setCurrentUser(data);
+    console.log(note);
     window.location.href = "note.html";
   })
   .catch((err) => {
-    let q = document.querySelector('.error');
-    q.innerHTML = err.message;
+    let p = document.querySelector('.error');
+    p.innerHTML = err.message;
   }) 
 }
     

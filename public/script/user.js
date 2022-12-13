@@ -26,6 +26,7 @@ class User{
 
 }
 
+//registration
 let Register = document.getElementById("register");
 if(Register) Register.addEventListener('submit',registration);
 
@@ -54,28 +55,27 @@ function registration(e){
 
 //Login javascript
 
-let Login = document.getElementById("login");
-if (Login) Login.addEventListener("submit",Loggin);
-   
-   
-   function Loggin(e){
-   e.preventDefault();
-   
-   let Username = document.getElementById("email").value;
-   let Password = document.getElementById("password").value;
-   let user = new User(Username,Password);
-   
-   fetchData("/user/login", user, "POST")
+let loginForm = document.getElementById("login");
+if(loginForm) loginForm.addEventListener('submit', login);
+
+function login(e) {
+  e.preventDefault();
+
+  let Username = document.getElementById("email").value;
+  let Password = document.getElementById("password").value;
+  let user = new User(null,null,Username, Password);
+  console.log(user);
+  fetchData("/user/login", user, "POST")
   .then((data) => {
     setCurrentUser(data);
     window.location.href = "note.html";
   })
-  .catch((err) =>{
-    let q = document.querySelector('.error');
-    q.innerHTML = err.message;
-  })
-
-   }
+  .catch((err) => {
+    let p = document.querySelector('.error');
+    p.innerHTML = err.message;
+  }) 
+}
+ 
 
 
 

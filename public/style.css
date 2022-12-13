@@ -8,8 +8,9 @@
      text-align: center;
      font-style: italic;
  }
-nav {
+nav ul {
   margin: 30px;
+  display: flex;
 }
 nav a{
    color:black;

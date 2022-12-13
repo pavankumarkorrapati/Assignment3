@@ -34,10 +34,10 @@ async function register(user) {
   return await login(user);
 }
 
-// Read User -- login user
-async function login(user) { // {userName: "sda", password: "gsdhjsga"}
-  let cUser = await getUser(user); //[{userName: "cathy123", password: "icecream"}]
-  console.log(cUser)
+//Reading login user
+async function login(user) { 
+  let cUser = await getUser(user); 
+  
   if(!cUser[0]) throw Error("Username not found");
   if(cUser[0].password !== user.password) throw Error("Password incorrect");
 
