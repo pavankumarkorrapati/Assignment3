@@ -2,7 +2,7 @@ const express = require('express');
 const Note = require('../models/note');
 const router = express.Router();
 
-router.get('/',async (req,res)=>{
+router.get('/',async (_req,res)=>{
   try{
       const notes=await Note.getAllNotes();
       res.send(notes);

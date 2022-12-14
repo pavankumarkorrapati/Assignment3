@@ -26,7 +26,7 @@ async function createNote(note){
 
   let cNote=await getNote(note);
 
-  const sql=`INSERT INTO notes(note,userID) VALUES ("${note.note}",${note.userID});`
+  const sql=`INSERT INTO notes(note,userID) VALUES ("${note.note}","${note.userID}");`
   //const sql=`INSERT INTO notes(note) VALUES ("${note.note}");`
 
   await con.query(sql);
@@ -49,32 +49,25 @@ async function deleteNote(note){
 
 }
 
+//useful functions
 async function getNote(note){
   let sql;
 
   if(note.noteID){
-      sql=`select * from notes where noteID=${note.noteID}`;
+      sql=`
+      SELECT * FROM  notes WHERE noteID = ${note.noteID}`;
 
   }
   else{
-      sql=`select * from notes where note="${note.note}"`;
+      sql=`
+      SELECT * FROM notes WHERE note="${note.note}"
+      `;
   }
 
   return await con.query(sql);
 }
 
 
-// const notes=[{
-//   noteId:1233,
-//   notecontent:"Hello"
-// },{
-//   noteId:9383,
-//   notecontent:"How r u??"
-// },
-// ];
 
-function getNotes(){
-  return notes;
-}
 
 module.exports={getAllNotes,editNote,deleteNote,createNote};
