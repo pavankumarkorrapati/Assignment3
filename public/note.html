@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css">
     <style>
         body{
-             background-image:url("https://media.istockphoto.com/id/607913622/photo/manhattan-bridge-new-york-city.jpg?s=612x612&w=0&k=20&c=7S7XM9om8UwQ9K_Gik_fDKVokkXVHE4SgcuHnkKhXxI=");
+             background-image:url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v996-009_1-kroir4dk.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=dcb55d36929676d81bb5f66b7e091fe8");
          }
         .back img{
              width: 200px;
@@ -33,22 +33,28 @@
     </div>
     <br> <br>
     <div class="back">
-        <p id=".error"></p>
+        <p id="error"></p>
       <img src="https://yt3.ggpht.com/ytc/AMLnZu-xo00R8tS5UbG80IIGPLG5eLlM3bPDtBnomIHN=s900-c-k-c0x00ffffff-no-rj" alt="logo">  
       <h1>Add some Notes</h1>
       <main>
       <form id="comments">        
       <label>Add Notes:</label>
-      <input type="text" id="notetaking" cols="20" rows="10"><br><br>
+      <input type="text" id="notetaking"><br><br>
       <input type="submit" value="submit">
       </form>
       </main>
     </div>
     <br>
-    <button id="notes-btn">Get Notes</button>
 
-     <div class="getAllNotes"></div>
 
+    
+    <div>
+        <ul id="allnotes"><button>get Notes</button></ul>
+
+    </div>
+   
+    
+   
     <script type="module" src="./script/note.js"></script>
     <script type="module" src="./script/main.js"></script>
 </body>

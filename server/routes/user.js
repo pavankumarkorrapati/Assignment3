@@ -3,7 +3,7 @@ const User = require('../models/user');
 const router = express.Router();
 
 router
-  .get('/', async (req, res) => {
+  .get('/', async (_req, res) => {
     try {
       const users = await User.getAllUsers();
       res.send(users);
@@ -48,8 +48,4 @@ router
     }
   })
 
-
-
-  
 module.exports = router;
-
